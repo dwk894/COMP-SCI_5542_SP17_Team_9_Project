@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+<title>emotion detection</title>
+<meta charset="UTF-8">
+<script type="text/javascript" src="js/js.js"></script>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="http://jt.875.cn/js/jquery.js"></script> 
+<script type="text/javascript" src="http://jt.875.cn/js/scrollto.js"></script> 
+
+</head>
+
+<body>
+<div id="info" class="info">
+	<p align="center" >CS5542 Project, team 9</p>
+</div>
+<div class="text">
+<!--	<p align="center">part 1, text to emoji</p>-->
+	<h2>Emotion detection from text</h2>
+	<div id="1" class="text-info">
+				<div class="text-info-left">
+					<h1>today's moments</h1>
+					<form>
+						<textarea type="text" value="what's up" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value ='whats up...';}" required>what's up...</textarea>
+						<div id="parent">
+  <select onChange="document.outputemoji.src=options[selectedIndex].value">
+      <option value="images/default.png">emoji list</option>
+      <option value="images/Standard_Emoji/Anger.jpg">Anger</option>
+      <option value="images/Standard_Emoji/Anticipation.jpg">Anticipation</option>
+     <option value="images/Standard_Emoji/Disgust.jpg">Disgust</option>
+      <option value="images/Standard_Emoji/Fear.jpg">Fear</option>
+     <option value="images/Standard_Emoji/Joy.jpg">Joy</option>
+      <option value="images/Standard_Emoji/Sadness.jpg">Sadness</option>
+     <option value="images/Standard_Emoji/Surprise.jpg">Surprise</option>
+      <option value="images/Standard_Emoji/Trust.jpg">Trust</option>
+  </select>
+</div>
+						
+					
+						<input type="submit" value="Submit" >
+						<p style="text-align: right; font-size: 13px;color: red;">just click submit, we'll choose the emoji for you</p>
+					</form>
+				</div>
+<div class="text-output">
+	
+	<div style="float: left;height: 80px;width: 78%">
+		<p style="font: normal;font-size: 23px;color: aliceblue;">the emoji we asign to these words is:</p>
+	</div>
+	<div style="float: right;height: 80px;width: 20%;"><img width="80px" height="80px" src="images/default.png" name="outputemoji"> </div>
+</div>
+				<div class="text-info-right">
+       
+					<h2>detect emotion</h2>
+					<p style="color: darkblue;font-size:23px ">simply type in your moments, we will know your today's emotion and automatically asign an emoji to your words.</p>
+					
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div style="float: left;margin: 1em 50em 0 0;">
+	<a href="#" class="tobottom"  > 
+	<img border="0" src="images/arrowdown.png">
+	</a>
+</div>
+</div>
+<div id="twitter" class="twitter">
+	<h2>Emotion detection from text</h2>
+	<p class="description">simlpy choose an emoji from your local, and we will generate emoji base on the image, and show you the top ten twitter using this emoji</p>
+	<div class="twitter-bottom">
+			<form>
+				<input type="file" value="Name" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Name';}" required="">
+				
+				<input type="submit" value="Submit" >
+			</form>
+			<div class="result">
+				<h4>result shows here</h4>
+		    </div>
+            <div style="margin-left:-120px;">
+            <img src="images/twitterimg.png" style="width:450px;height:280px">
+            </div>
+	</div>
+</div>
+<div style="background: rgba(101, 118, 125, 0.77);">
+	<a href="#" class="totop" > 
+	<img border="0" src="images/arrow.png">
+	</a>
+</div>
+<script type="text/javascript">
+	
+$(".totop").click(function(){ 
+$.scrollTo('#info',499); 
+}); 
+	
+$(".tobottom").click(function(){ 
+$.scrollTo('#twitter',499); 
+}); 
+</script>
+</body>
+</html>
