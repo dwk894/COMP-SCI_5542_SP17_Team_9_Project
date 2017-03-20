@@ -1,0 +1,141 @@
+/* CSS Document */
+body {
+	
+	height: 1500px;
+}
+.info{
+	height:200px;
+	border: 2px solid #3F3EA9;
+	width: auto;
+	
+}
+.info h2{
+	font-size:1.4em;
+	text-transform:capitalize;
+	color:#157A06;
+	margin:0;
+	font-family: 'Montserrat Alternates', sans-serif;
+}
+.text{
+	
+	height: 650px;
+	border: 2px solid #3F3EA9;
+	width: auto;
+}
+.text-info{
+	margin:2em 0 0;
+}
+.text-info-left{
+	width: 40%;
+    float: left;
+    padding: 2em;
+    background: rgba(101, 118, 125, 0.77);
+}
+.text-info h1{
+	font-size:1.3em;
+	color:#fff;
+	margin:0 0 0 .5em;
+	text-align:center;
+	/*font-family: 'Montserrat Alternates', sans-serif;*/
+}
+.text-info textarea{
+	margin:.5em 0;
+	min-height:150px;
+	min-width: 100%;
+	resize:none;
+	
+}
+.text-info button[type="submit"]{
+	background:#00f482;
+	font-size:16px;
+	width:100%;
+	padding:13px 0;
+	outline:none;
+	border:none;
+	color:#fff;
+	transition:.5s all;
+	-webkit-transition:.5s all;
+	-moz-transition:.5s all;
+	-o-transition:.5s all;
+	-ms-transition:.5s all;
+	font-family: 'Montserrat Alternates', sans-serif;
+}
+.text-info input[type="submit"]:hover{
+	background:#3E4C52;
+}
+
+.text-output{
+	float: right;
+	width: 40%;
+	margin:0em 0.4em 0 5em;
+	border:2px solid #3F3EA9;
+	height: 81px;
+	background: rgba(101, 118, 125, 0.77);
+}
+.text-info-right{
+	width: 40%;
+    float: right;
+    margin:2em 0 0 6em;
+}
+.text-info-right h2{
+	font-size:1.2em;
+	text-transform:capitalize;
+	color:#157A06;
+	margin:0;
+	font-family: 'Montserrat Alternates', sans-serif;
+}
+.text h2{
+	text-align: center;
+	font-size:1.4em;
+	text-transform:capitalize;
+	color:#157A06;
+	margin:0;
+	font-family: 'Montserrat Alternates', sans-serif;
+}
+.twitter{
+	height: 670px;
+	border: 2px solid #3F3EA9;
+}
+.twitter h2{
+	text-align: center;
+	font-size:1.4em;
+	text-transform:capitalize;
+	color:#157A06;
+	margin:0;
+	font-family: 'Montserrat Alternates', sans-serif;
+}
+p.description{
+	color:#999;
+	font-size:18px;
+	width:60%;
+	margin:.5em auto 0;
+	line-height:1em;
+	text-align:center;
+}
+.twitter-bottom{
+	
+	margin:3em 0 0;
+}
+.twitter-bottom form{
+	float:left;
+	width:50%;
+	}
+.twitter-bottom input[type="submit"] {
+	background: #00F482;
+    color: #fff;
+    outline: none;
+    padding: 10px 0px;
+    width: 30%;
+	font-size: 16px;
+	border:none;
+	font-family: 'Montserrat Alternates', sans-serif;
+	transition:.5s all;
+	-webkit-transition:.5s all;
+	-moz-transition:.5s all;
+	-o-transition:.5s all;
+	-ms-transition:.5s all;
+	}
+.twitter-bottom input[type="submit"]:hover {
+	background:#65767D;
+	}
+
