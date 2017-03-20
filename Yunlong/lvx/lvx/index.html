@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="css/jquery.fullPage.css" />
+		<script type="text/javascript" src="js/jquery.easing.min.js" ></script>
+		<script type="text/javascript" src="js/jquery-1.12.1.min.js" ></script>
+		<script type="text/javascript" src="js/jquery.fullPage.min.js" ></script>
+		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$.ajax({
+					url:"resources/info.xml",
+					type:"get",
+					dataType:"xml",
+					success:function(data){
+						ParseSection(data);
+					}
+				})
+				$("#supercontainer").fullpage({
+					sectionsColor:["salmon","bisque","khaki","azure"],
+					anchors:["page1","page2","page3","page4"],
+					menu:"#menu",
+					afterLoad:function(anchorLink,index){
+						switch(index){
+							case 2:
+							$(".section02").find(".p1").delay(0).animate({"bottom":"0"},1000)
+							$(".section02").find(".p2").delay(500).animate({"bottom":"0"},1000)
+							$(".section02").find(".p3").delay(800).animate({"bottom":"0"},1000)
+							$(".section02").find(".span1").delay(0).animate({"top":"0"},2000)
+							$(".section02").find(".span2").delay(500).animate({"top":"0"},2000)
+							$(".section02").find(".span3").delay(800).animate({"top":"0"},2000)
+							break;
+							case 3:
+							$(".section03").find(".p1").delay(0).animate({"left":"0"},1000)
+							$(".section03").find(".p2").delay(100).animate({"right":"0"},1000)
+							$(".section03").find(".p3").delay(0).animate({"left":"0"},1000)
+							break;
+							case 4:
+						$(".section04").find("h3").delay(0).fadeIn(1000)
+						}
+					}
+				})
+			})
+			function ParseSection(data){
+				var count=0;
+				var titleName=$(data).find("sec[name='sec02']").attr("title");
+				$(".section02").find("h3").html(titleName)
+				$(data).find("sec[name='sec02']>info").each(
+					function(index,element){
+						count +=1;
+						var infoText=$(element).text();
+						$(".section02").find(".span"+count).html(infoText)
+					}
+				)
+			}
+		</script>
+		<style type="text/css">
+		*{
+			padding: 0;margin: 0;
+		}
+		li{
+			list-style: none;
+		}
+		.section01{
+			background:url(img/bg1.jpg) no-repeat ;
+			background-size: 100% 100%;
+		}
+		.section03{
+			background:url(img/bg2.jpg)  no-repeat ;
+			background-size: 100% 100%;
+		}
+		.section02{
+			background:url(img/bg3.jpg) no-repeat ;
+			background-size: 100% 100%;
+		}
+		.section04{
+			background:url(img/3.jpg) ;
+		}
+	.section02 h3,.section02 p{
+			color:white;
+		}
+		.section02 h3{
+			font-size: 1em;
+			font-family: FZShuTi;
+		}
+		h3{
+			text-align: center;
+		}	
+		.fp-section{
+			font-size:3em ;
+		}
+		.section02 p{
+			font-size:0.5em ;
+		}
+		.section02 p{
+			text-align: center;
+			width: 33.3%;
+			display: inline-block;
+			float: left;
+			position: relative;
+			bottom: -120%;
+			
+		}
+		.news_word{
+			text-align: center;
+			
+			display: inline-block;
+			font-size:16px ;
+		}
+		.news_word span{
+			margin-left:65px ;
+			width:400px ;
+			float: left;
+			position: relative;
+			top:200% ;
+			color: white;
+		}
+		.news_word span:hover{
+			color: #CCCCCC
+		}
+		.section02 p img{ border: 10px whitesmoke solid;}
+		.section02 p span{font-size: 10px;}
+		.section02 p:hover img {
+			width:351px ;
+			height: 281px;
+			box-shadow:0 0 10px #000000
+		
+		}
+		.section03 h3,.section03 p{
+			color: goldenrod;
+		}
+		.section03 p{
+			font-size:0.5em ;
+		}
+		.section03 p{
+			text-align: center;
+			
+		}
+		.section03 .p1{
+			position:relative;
+			left: -120%;
+			
+		}
+		.section03 .p2{
+			position:relative;
+			right: -120%;
+			
+		}
+		.section03 .p3{
+			position:relative;
+			left: -120%;
+			
+		}
+		.section04 h3
+		{
+			display: none;
+		}
+		.setTopnav{
+			height: 50px;
+			width: 100%;
+			background:#FFFFFF ;
+			opacity: 0.5;
+			position: absolute;
+			top: 40px;
+			z-index: 2;
+		}
+		ul#menu{ list-style: none;}
+		ul#menu li{
+			float: left;
+		    margin-left:40px;
+	width: 150px;
+		}
+		ul#menu li a{
+			
+			text-decoration: none;
+			line-height:50px ;
+			font-family: "微软雅黑";
+			font-size:18px ;
+			font-weight: 600;
+		}
+		ul#menu li a:hover{
+			color: cornflowerblue;
+			font-size:20px ;
+		}
+		/**/
+#news{
+height: 300px;
+overflow: hidden;
+width: 1000px;
+margin-left:30% ;
+
+}
+#news a:hover {
+    color: whitesmoke
+
+}
+.lili{
+	height: 300px;
+}
+#news a{
+	text-decoration: none;
+	color: #333;
+	font-size:2em;
+    color: white;
+}
+.mar20
+{
+	margin-left:20px ;
+}
+.gdfloat
+{
+	width:400px ;
+	float: left;
+	margin-left:20px ;
+}
+/**/
+.banner {
+    width: 980px;
+    margin: 0 auto;
+    height: 360px;
+    position: relative;
+    font-size: 18px;
+     border: 4px solid white;
+}
+.banner .banner_c {
+    width: 950px;
+    height: 280px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 80px 0 0 30px;
+    z-index: 2;
+}
+
+.banner .banner_c .li01 {
+    padding-right: 50px;
+    padding: 34px 50px 0 0;
+    height: 160px;
+    width:250px ;
+   
+}
+.banner .banner_c .li01 span {
+    font-size: 22px;
+}
+.banner .banner_c .li02 {
+	padding: 25px 40px 0;
+	font-size: 18px;
+	font-family: "simhei";
+	height: 160px;
+	width:250px ;
+	}
+	.banner .banner_c li 
+	{
+	height: 160px;
+	color: #fff;
+	float: left;
+	}
+	.sky .s_icon19 {
+    background-position: -200px -1720px;
+}
+.sky span {
+    width: 133px;
+    height: 111px;
+    background: url(img/tq.png) no-repeat;
+    display: block;
+    margin-bottom: 10px;
+}	
+.banner .banner_c .li04 span {
+    width: 106px;
+    height: 106px;
+    background: url(img/feng_03.png) no-repeat;
+    float: left;
+   width:250px ; 
+   height: 160px;
+    
+}
+/*登录*/
+
+.login
+{
+	margin-left:40% ;
+	width: 300px;
+	height: 50px;
+	font-weight:600 ;
+	font-size:18px ;
+	color: white;
+border:1px solid #1e7db9;
+box-shadow: 0 1px 2px #8fcaee inset,0 -1px 0 #497897 inset,0 -2px 3px #8fcaee inset;
+background: -webkit-linear-gradient(top,#42a4e0,#2e88c0);
+background: -moz-linear-gradient(top,#42a4e0,#2e88c0);
+background: linear-gradient(top,#42a4e0,#2e88c0);
+}
+
+
+.loginbg {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		background: #000 none repeat scroll 0% 0%;
+		opacity: 0.5;
+		left: 0px;
+		top: 0px;
+		z-index: 100;
+		min-height: 430px;
+	}
+	
+	.loginbox {
+		position: fixed;
+		left: 63%;
+		top: 50%;
+		margin-top: -200px;
+		margin-left: -280px;
+		z-index: 101;
+		min-height: 430px;
+	}
+	
+	.logindiv {
+		width: 460px;
+		padding: 40px 50px 0px;
+		background:   black none repeat scroll 0% 0%;
+		opacity: 0.5;
+		border-radius: 10px;
+	}
+	
+	.close {
+		position: absolute;
+		z-index: 102;
+		width: 18px;
+		height: 18px;
+		right: 20px;
+		top: 20px;
+		cursor: pointer;
+		background: transparent url(img/loginreg.png) no-repeat scroll -150px -306px;
+	}
+	
+	.line {
+		height: 20px;
+		margin: 0px 85px;
+		border-bottom: 1px solid #E9E9E9;
+	}
+	
+	.denglu11 {
+		display: block;
+		float: none;
+		margin: 0px auto;
+		padding: 0px;
+		width: 112px;
+		text-align: center;
+		background: #FCFCFC none repeat scroll 0% 0%;
+		position: relative;
+		top: 5px;
+		letter-spacing: 2px;
+		font-size: 18px;
+		cursor: default;
+	}
+	
+	.kslogin {
+		padding: 30px 85px;
+	}
+	
+	.errorbox {
+		background: #FFF9F9 none repeat scroll 0% 0%;
+		border: 1px solid #FAC5C5;
+		color: #F22625;
+		height: 26px;
+		line-height: 26px;
+		font-size: 12px;
+		margin-bottom: 10px;
+		padding-left: 10px;
+	}
+	
+	.gantanhao {
+		display: inline-block;
+		width: 14px;
+		height: 14px;
+		line-height: 14px;
+		border-radius: 14px;
+		font-size: 10px;
+		background: #F11B1B none repeat scroll 0% 0%;
+		font-style: normal;
+		color: #FFF;
+		font-weight: bold;
+		text-align: center;
+		margin-right: 5px;
+	}
+	
+	.control-group {
+		padding: 6px 0px;
+		display: inline-block;
+	}
+	
+	.controls {
+		float: left;
+	}
+	
+	.login_icon_account_b {
+		width: 38px;
+		height: 38px;
+		float: left;
+		display: inline-block;
+		vertical-align: middle;
+		background: transparent url(../img/login_icon_account_b.png) repeat scroll 0% 0%;
+	}
+	
+	.loginaccount {
+		height: 28px;
+		border-radius: 0px;
+		padding-left: 10px;
+		font-size: 14px;
+		width: 234px;
+		float: left;
+		display: inline-block;
+		vertical-align: middle;
+		line-height: 28px;
+		padding: 4px 6px;
+		border: 1px solid #D5D5D5;
+		box-shadow: none;
+	}
+	
+	.auto-login {
+		float: left;
+		width: 290px;
+		margin-bottom: 10px;
+	}
+	
+	.blank {
+		height: 8px;
+	}
+	
+	.floatleft {
+		color: #5A5A5A;
+		float: left;
+		font-size: 12px;
+		text-decoration: none;
+	}
+	
+	.floatleft:hover {
+		color: #08A0E6;
+	}
+	
+	.floatright {
+		color: #5A5A5A;
+		float: right;
+		font-size: 12px;
+		text-decoration: none;
+	}
+	
+	.floatright:hover {
+		color: #08A0E6;
+	}
+	
+	.submit {
+		background: linear-gradient(to bottom, #39B99C, #18AC8A) repeat scroll 0% 0%;
+		border: 1px solid #0E8469;
+		height: 40px;
+		width: 290px;
+		line-height: 36px;
+		text-align: center;
+		display: block;
+		border-radius: 4px;
+	}
+	
+	.submitbtn {
+		color: #E6F6F3;
+		font-size: 18px;
+		padding: 0px 18px;
+		text-align: center;
+	}
+	
+	.other {
+		width: 24px;
+		height: 24px;
+		text-decoration: none;
+	}
+	
+	.other img {
+		height: auto;
+		max-width: 100%;
+		max-height: 100%;
+		vertical-align: middle;
+		border: 0px none;
+		margin-right: 6px;
+	}
+/*登录*/
+/*客服*/
+.kefu{
+	width:200px ;
+	height:200px;
+}
+.kfmm{
+
+	background: url(img/01.png) no-repeat;
+	background-size: 100% 100%;
+    position: absolute;
+    width: 105px;
+    height: 105px;
+    left: 24px;
+    top: 500px;
+ }
+ /*''*/
+.xzy_banner {
+	margin-top: 20px;
+	margin-left:15% ;
+	width: 1000px;
+	float: left;
+	height: 540px;
+	overflow: hidden;
+	position: relative;
+	  background: -webkit-gradient(linear, 0% 20%, 0% 92%, from(#fff), to(#f3f3f3), color-stop(.1,#fff));
+    border-top: 5px solid #ccc;
+    border-right: 5px solid #ccc;
+    border-left: 5px solid #ccc;   
+    border-bottom: 5px solid #ccc;
+    -webkit-box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.5) 
+}
+
+.xzy_imglist {
+	width: 9999px;
+	transition: all .5s;
+}
+
+.xzy_imglist img {
+	float: left;
+}
+
+.xzy_a_left {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 32px;
+	height: 56px;
+	margin-top: -20px;
+	font-size: 60px;
+	font-weight: 100;
+	line-height: 48px;
+	color: #fff;
+	text-align: center;
+	background: #000;
+	border: 1px solid #fff;
+	border-radius: 3px;
+	opacity: .3;
+}
+
+.xzy_a_right {
+	position: absolute;
+	top: 50%;
+	right: 0;
+	width: 32px;
+	height: 56px;
+	margin-top: -20px;
+	font-size: 60px;
+	font-weight: 100;
+	line-height: 48px;
+	color: #fff;
+	text-align: center;
+	background: #000;
+	border: 1px solid #fff;
+	border-radius: 3px;
+	opacity: .3;
+}
+.section04{
+	
+}
+/**team**/
+.team {
+	text-align: center;
+}
+.team h3 {
+    font-size: 1em;
+    font-family: 'DancingScript-Regular';
+    color: #3b3772;
+}
+.team-grids{
+	margin:2em 0 0;
+}
+.team-grid-left{
+	float:left;
+	width:65%;
+	text-align:right;
+}
+.team-grid-left h4 {
+    margin: 0;
+	font-size: 16px;
+    color: #222;
+}
+.team-grid-left p {
+    color: #999;
+    font-size: 14px;
+    margin: .8em 0 0;
+    line-height: 1.8em;
+}
+.team-grid-right{
+	float:right;
+	width:30%;
+}
+.aliquam{
+	float:left !important;
+	width:30% !important;
+}
+.non{
+	float:right !important;
+	width:65% !important;
+	text-align:left !important;
+}
+.team-grids:nth-child(2){
+	margin:2em 0 0;
+}
+.team-grid:hover .team-grid-right {
+    transform: rotateY(360deg);
+    -webkit-transform: rotateY(360deg);
+    -o-transform: rotateY(360deg);
+    -ms-transform: rotateY(360deg);
+    -moz-transform: rotateY(360deg);
+    transition: 0.5s all ease;
+    -webkit-transition: 0.5s all ease;
+    -moz-transition: 0.5s all ease;
+    -o-transition: 0.5s all ease;
+    -ms-transition: 0.5s all ease;
+}
+/*--team--*/
+		</style>
+	</head>
+	<body>
+		<div class="setTopnav">
+			<ul id="menu">
+				<li data-anchorsmenu="#page1"><a href="#page1">MAIN</a></li>
+				<li data-anchorsmenu="#page2"><a href="#page2">NEWS</a></li>
+				<li data-anchorsmenu="#page3"><a href="#page3">BLOG</a></li>
+				<li data-anchorsmenu="#page4"><a href="#page4">ABOUT ME</a></li>
+			</ul>	<div class="kefu"><i class="kfmm"></i>
+			
+			</div>
+		</div>
+	
+		<div id="supercontainer">
+			<div class="fp-section section01 ">
+				<div class="fp-slide">
+					<div>
+	<div id="news">
+<ul id="gdul">
+<li class="lili"><a href="#" rel="external nofollow">WELCOME
+	<br /> TO Santorini</a>
+</li>
+<li class="lili"><a href="#" rel="external nofollow"title="b">BLUE WORLD</a>
+</li>
+<li class="lili"><a href="#" rel="external nofollow"title="V">HOPE U HAVE 
+	<br>A GOOD TRIP</a>
+</li>
+
+
+</ul>
+</div></div>
+						
+				</div>
+				<div class="fp-slide">
+				<span style=" color: white;">Santorini'weather</span>	
+				<div class="banner">
+			<ul class="banner_c">
+				<li class="li01">
+				<p><span>2017-02-22 10:32:50   星期三</span>
+					<br>湿度：86%</p>
+				</li>
+				<li class="li02">
+					<div class="sky">
+						<span class="s_icon19"></span>
+						<p>晴朗 / 东南</p>
+					</div>
+					<span class="deg">8℃-16℃</span>
+				</li>
+				<li class="li04">
+						<span></span>
+						<p>
+							风向：东南<br>
+							风速：11
+						</p></li></ul>
+		</div>
+				
+				
+				
+				
+				</div>
+				<div class="fp-slide">
+					<button type="button" class="login" onclick="">login in</button>
+					<div class="loginbg" style="display: none;"></div>
+					<div class="loginbox" style="display: none;">
+						<div class="logindiv">
+							<div class="close"></div>
+							<div class="line">
+								<span class="denglu11">login in</span>
+							</div>
+							<div class="kslogin">
+								<form class="form" method="post">
+									<div class="errorbox" style="display: none;">
+										<i class="gantanhao">!</i>
+										<span class="spanlogin">账户不能为空</span>
+									</div>
+									<div class="control-group">
+										<div class="controls">
+											<span style="color: white;">name</span>
+											<input class="loginaccount" id="username" type="text" placeholder="please input your number" />
+										</div>
+
+									</div>
+									<div class="clear"></div>
+									<div class="control-group">
+										<div class="controls">
+											<span style="color: white;">password</span>
+											<input class="loginaccount" id="password" type="password" placeholder="please input your password" />
+										</div>
+
+									</div>
+
+									<div class="auto-login">
+										<div class="blank"></div>
+										<a class="floatleft" href="">lost password?</a>
+										<a class="floatright" href="">register</a>
+									</div>
+									<div class="clear"></div>
+									<div class="control-group">
+										<div class="controls">
+											<div class="submit" onclick="submit()">
+												<span class="submitbtn">login in</span>
+											</div>
+										</div>
+
+									</div>
+									<div class="control-group" style="font-size: 12px;color: #333;">
+										
+
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					
+					
+					
+					
+					
+					
+					
+				</div>
+				<div class="fp-slide"></div>
+			</div>
+			<div class="fp-section section02">
+				<h3>第二屏</h3>
+				<p class="p1"><img width="350px"height="280px"  src="img/banner1.jpg">
+				 </p>
+				<p class="p2"><img width="350px"height="280px"  src="img/banner2.jpg">
+				</p>
+				<p class="p3"><img width="350px"height="280px"  src="img/banner3.jpg">
+				</p>
+				<div class="news_word"><span class="span1"></span>
+					<span class="span2"></span>
+					<span class="span3"></span></div>
+			</div>
+			<div class="fp-section section03">
+				<h3>第一屏</h3>
+				<p class="p1">我是第1行</p>
+				<p class="p2">我是第2行</p>
+				<p class="p3">我是第3行</p>
+			</div>
+			<div class="fp-section section04">
+				<h3 style="font-family: STLiti; color: #3079ED;">Santorini'hotel</h3>
+				<div><div class="xzy_banner">
+						<div class="xzy_imglist">
+							<img width="1000px"height="540px"src="img/jd1.jpg"/>
+							<img width="1000px"height="540px" src="img/jd2.jpg"/>
+							<img width="1000px"height="540px" src="img/jd3.jpg"/>
+							<img width="1000px"height="540px" src="img/jd4.jpg"/>
+							<img width="1000px"height="540px" src="img/jd5.jpg"/>
+							<img width="1000px"height="540px" src="img/v_pic6.jpg"/>
+						</div>
+						<a href="##" class="xzy_a_left">‹</a>
+						<a href="##" class="xzy_a_right">›</a>
+						<script type="text/javascript">
+							$(document).ready(function(){
+								var sum6=0;
+								var change6=0
+							setInterval(function(){	
+								sum6=sum6-1000;
+								$(".xzy_imglist").css("margin-left",sum6);
+								if(sum6<=-3425){
+									sum6=0
+								}
+								$(".xzy_a_right").click(function(){
+									$(".xzy_imglist").css("margin-left",sum6);
+								})
+							},2000);
+							})
+						</script>
+					</div>
+				</div>
+			</div>
+		<div class="fp-section section04">
+				<div class="team">
+		<div class="container">
+			<h3>THE TRAVELLERS</h3>
+			<div class="team-grids">
+				<div class="col-md-6 team-grid">
+					<div class="team-grid-left">
+						<h4>SC </h4>
+						<p>没想好胡编什么</p>
+					</div>
+					<div class="team-grid-right">
+						<img width="162px" height="162px" src="img/4.jpg" alt=" " class="img-responsive" />
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="col-md-6 team-grid">
+					<div class="team-grid-right aliquam">
+						<img width="162px" height="162px" src="img/timg.jpg" alt=" " class="img-responsive" />
+					</div>
+					<div class="team-grid-left non">
+						<h4>LYL </h4>
+						<p>没想好胡编什么</p>
+					</div>
+					
+					<div class="clearfix"> </div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="team-grids">
+				<div class="col-md-6 team-grid">
+					<div class="team-grid-left">
+						<h4>DM</h4>
+						<p>没想好胡编什么</p>
+					</div>
+					<div class="team-grid-right">
+						<img  width="162px" height="162px"src="img/1.jpg" alt=" " class="img-responsive" />
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="col-md-6 team-grid">
+					<div class="team-grid-right aliquam">
+						<img width="162px" height="162px" src="img/2.jpg" alt=" " class="img-responsive" />
+					</div>
+					<div class="team-grid-left non">
+						<h4>CC</h4>
+						<p>没想好胡编什么</p>
+					</div>
+					
+					<div class="clearfix"> </div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+			</div></div>
+			</div>
+		</div>
+	</body>
+</html>
