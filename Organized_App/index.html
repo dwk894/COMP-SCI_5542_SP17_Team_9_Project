@@ -1,0 +1,116 @@
+<!--
+<%--
+Created by IntelliJ IDEA.
+User: yunlongliu
+Date: 4/23/17
+Time: 11:23 PM
+To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Application of Image-To-Text and Text-To-Image on Emoji Impressions</title>
+    <meta charset = 'UTF-8'>
+    <script type = 'text/javascript' src = 'js/js.js'></script>
+    <link href = 'css/style.css' rel = 'stylesheet' type = 'text/css'>
+    <script type = 'text/javascript' src = 'http://jt.875.cn/js/jquery.js'></script>
+    <script type = 'text/javascript' src = 'http://jt.875.cn/js/scrollto.js'></script>
+    <script type = 'text/javascript' src = 'js/twitterFetcher_min.js'></script>
+    <script type = 'text/javascript' src = 'js/exampleUsage.js'></script>
+    <script type = 'text/javascript' src = 'js/Dayu/TextToImage.js'></script>
+    <script type = 'text/javascript' src = 'js/Dayu/ImageToText.js'></script>
+  </head>
+  <body>
+    <div id = 'info' class = 'info'>
+      <h2 align = 'center'>COMP-SCI 5542 (SP17) - Big Data Analytics and Applications</h2>
+      <p align = 'center' style = 'margin-top: 50px; margin-right: 75px; color:#1A5F95; font-size:22px; line-height: 0.3'><b>Team 9: <em>Dayu Wang </em>(45)</b></p>
+      <p align = 'center' style = 'color:#1A5F95; font-size: 22px; line-height: 0.3'><b><em>Chen Wang </em>(44)</b></p>
+      <p align = 'center' style = 'color:#1A5F95; font-size: 22px; line-height: 0.3'><b><em>Yunlong Liu </em>(22)</b></p>
+    </div>
+    <div class = 'text'>
+      <h2>Emotion Detection from Text</h2>
+      <div id = '1' class = 'text-info'>
+        <div class = 'text-info-left'>
+          <h1 style = 'line-height: 2; font-size: 22pt;'>Today's Moments</h1>
+          <input type = 'text' id = 'input_1' placeholder = "What's up?" style = 'width: calc(100% - 11px); height: 165px; font-size: 20px; padding-top: 0px; padding-left: 10px; font-weight: bold; border:none'>
+          <!--
+<div id="parent">
+<select onChange="document.outputemoji.src=options[selectedIndex].value">
+<option value="images/default.png">Emoji List</option>
+<option value="images/Standard_Emoji/Anger.jpg">Anger</option>
+<option value="images/Standard_Emoji/Anticipation.jpg">Anticipation</option>
+<option value="images/Standard_Emoji/Disgust.jpg">Disgust</option>
+<option value="images/Standard_Emoji/Fear.jpg">Fear</option>
+<option value="images/Standard_Emoji/Joy.jpg">Joy</option>
+<option value="images/Standard_Emoji/Sadness.jpg">Sadness</option>
+<option value="images/Standard_Emoji/Surprise.jpg">Surprise</option>
+<option value="images/Standard_Emoji/Trust.jpg">Trust</option>
+</select>
+</div>
+-->
+          <button id = 'bt_sub'>Submit</button>
+          <p style = 'text-align: center; font-size: 21px; color: red; font-weight: bold;'>Just click submit, we will choose the appropriate emoticon for you.</p>
+        </div>
+        <div class = 'text-output'>
+          <div style = 'float: left; height: 80px; width: 78%'>
+            <p style = 'font-size: 24px; font-weight: bold; color: aliceblue; margin-left: 10px; margin-top: 28px' id = 'tte2'>Appropriate Emoticon:</p>
+          </div>
+          <div style = 'float: right; height: 80px; width: 20%; margin-right: 10px;'><img width = '80px' height = '80px' src = 'images/default.png' name = 'outputemoji' id = 'tte1'></div>
+        </div>
+        <div class = 'text-info-right'>
+          <h2><u>We understand your mood!</u></h2>
+          <p style = 'color:#1A5F95; font-size: 22px; font-weight: bold; line-height: 150%;'>By just simply typing in some words, we will find an appropriate emoticon that best matches your emotion.</p>
+          <img src = 'images/Page/Wheel.png' style = 'height: 300px; width: auto; display: block; margin: 0px auto;'>
+        </div>
+        <div class = 'content'></div>
+      </div>
+      <div style = 'float: left; position: fixed; bottom: 0px; height: 33px'>
+        <a href = '#' class = 'tobottom'>
+          <img border = '0' src = 'images/arrowdown.png'>
+        </a>
+      </div>
+    </div>
+    <div id = 'twitter' class = 'twitter'>
+      <h2 style = 'margin-top: 20px; margin-bottom: 20px;'>How People Tweet from Emoji?</h2>
+      <p class = 'description' style = 'margin-bottom: 20px; color: red; font-size: 18px; font-weight: bold;'>Just simlpy choose an emoticon and we can understand the emotion, and show you the top ten twitter using this emoji.</p>
+      <table style = 'width: 100%'>
+        <tr>
+          <td style = 'width: 40%'>
+            <input type = 'file' onchange = 'previewFile();'>
+            <button id = 'bt_sub_2'>Submit</button><br>
+          </td>
+          <td style = 'width: 60%; color: green; text-align: center; font-size: 22px; font-family: "Arial"; font-weight: bold;'>
+            <u>Tweets Related to the Input Emoji</u>
+          </td>
+        </tr>
+        <tr>
+          <td style = 'vertical-align: top;'>
+            <img id = 'preView' style = 'display: block; margin: 20px; height: 150px; width: auto;' alt = 'Preview Image Here.'>
+            <img id = 'processing' style = 'margin: 20px auto; display: block; height: auto; width: 40%;' src = 'images/processing.gif'>
+            <p id = 'r_2' align = 'center' style = 'margin-top: 40px;'><u style = 'font-family: "Tahoma"; font-size: 22px; font-weight: bold; color: green;'>Result</u><br><br><span style = 'font-family: "Tahoma"; font-size: 22px; font-weight: bold; color: red;'>Joy&emsp;0.6680593785</span>
+            </p>
+          </td>
+          <td>
+            <div style = 'overflow: scroll; max-height: 516px;' id = 'example'></div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div style = 'background: white; float: right'>
+      <a href = '#' class = 'totop'>
+        <img border = '0' src = 'images/arrow.png'>
+      </a>
+    </div>
+    <script type = 'text/javascript'>
+      $(".totop").click(function() {
+        $.scrollTo('#info', 499);
+      });
+      $(".tobottom").click(function() {
+        $.scrollTo('#twitter', 499);
+      });
+    </script>
+  </body>
+  <script type = 'text/javascript' src = '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.3/moment.min.js'></script>
+</html>
