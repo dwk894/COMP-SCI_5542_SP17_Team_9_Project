@@ -4,6 +4,13 @@ body {
   height: 1500px;
 }
 
+a.twitter-timeline {
+  margin: 0;
+  display: inline-block;
+  width: inherit;
+  border: 2px solid black;
+}
+
 #bt_sub {
   width: 100%;
   margin: none;
@@ -35,7 +42,7 @@ body {
 
 .info{
   height:200px;
-  border: 2px solid #3F3EA9;
+  /*  border: 2px solid #3F3EA9;*/
   width: auto;
 
 }
@@ -49,7 +56,7 @@ body {
 .text{
 
   height: 650px;
-  border: 2px solid #3F3EA9;
+  /*  border: 2px solid #3F3EA9;*/
   width: auto;
 }
 .text-info{
@@ -124,7 +131,7 @@ body {
 }
 .twitter{
   height: 670px;
-  border: 2px solid #3F3EA9;
+  /*  border: 2px solid #3F3EA9;*/
 }
 .twitter h2{
   text-align: center;

@@ -12,15 +12,15 @@ var config = {
 };
 
 function handleTweets(tweets){
-    var x = tweets.length;
-    var n = 0;
-    var element = document.getElementById('example');
-    var html = '<ul>';
-    while(n < x) {
-      html += '<li>' + tweets[n] + '</li>';
-      n++;
-    }
-    html += '</ul>';
-    element.innerHTML = html;
+  var x = tweets.length;
+  var n = 0;
+  var element = document.getElementById('example1');
+  var html = '<ul>';
+  while(n < x) {
+    html += '<li>' + tweets[n] + '</li>';
+    n++;
+  }
+  html += '</ul>';
+  element.innerHTML = html;
 }
 twitterFetcher.fetch(config);
